@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Guess Friends' Ages</title>
+    <style>
+        body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+header, footer {
+    background-color: #e44d26;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+.age-guess {
+    width: 90%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin: 20px 0;
+}
+
+h1, h2, h3 {
+    color: black;
+}
+
+.friend {
+    margin-top: 20px;
+}
+
+label {
+    font-size: 16px;
+    color: #333;
+}
+
+input {
+    padding: 8px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+button {
+    padding: 8px 15px;
+    cursor: pointer;
+    background-color: #e44d26;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+.result {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+@media only screen and (min-width: 460px) {
+    .age-guess {
+        width: 100%;
+        margin: 10px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Guess Friends' Ages</h1>
+        </header>
+        <main class="age-guess">
+            <div class="friend">
+                <h3>Rashid Bhai</h3>
+                <div class="input-container">
+                    <label for="rashidGuess">Enter your guess:</label>
+                    <input type="number" id="rashidGuess" placeholder="Enter your guess">
+                    <button onclick="checkGuess('Rashid', 58)">Check</button>
+                </div>
+                <div id="rashidResult" class="result"></div>
+            </div>
+
+            <!-- Repeat similar sections for other friends -->
+            <div class="friend">
+                <h3>Tariq Imam</h3>
+                <div class="input-container">
+                    <label for="tariqGuess">Enter your guess:</label>
+                    <input type="number" id="tariqGuess" placeholder="Enter your guess">
+                    <button onclick="checkGuess('Tariq', 65)">Check</button>
+                </div>
+                <div id="tariqResult" class="result"></div>
+            </div>
+
+
+
+
+            <div class="friend">
+                <h3>Qaiser</h3>
+                <div class="input-container">
+                    <label for="qaiserGuess">Enter your guess:</label>
+                    <input type="number" id="qaiserGuess" placeholder="Enter your guess">
+                    <button onclick="checkGuess('Qaiser', 61)">Check</button>
+                </div>
+                <div id="qaiserResult" class="result"></div>
+            </div>
+
+
+        </main>
+        <footer>
+            <p>&copy; 2024 Guess Friends' Ages</p>
+        </footer>
+    </div>
+
+    <script>function checkGuess(friendName, actualAge) {
+        const guessInput = document.getElementById(`${friendName.toLowerCase()}Guess`);
+        const resultContainer = document.getElementById(`${friendName.toLowerCase()}Result`);
+        const userGuess = guessInput.value;
+    
+        if (userGuess === "") {
+            resultContainer.textContent = "Please enter your guess!";
+        } else if (parseInt(userGuess) === actualAge) {
+            resultContainer.textContent = `Congratulations! Your guess is correct. ${friendName}'s actual age is ${actualAge}.`;
+            resultContainer.style.color = '#28a745'; // Green color for correct guess
+        } else {
+            resultContainer.textContent = `No, you are wrong. ${friendName}'s actual age is ${actualAge}.`;
+            resultContainer.style.color = '#dc3545'; // Red color for incorrect guess
+        }
+    }
+    </script>
+</body>
+</html>
