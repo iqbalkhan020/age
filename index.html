@@ -96,7 +96,6 @@ button {
                 <div id="rashidResult" class="result"></div>
             </div>
 
-            <!-- Repeat similar sections for other friends -->
             <div class="friend">
                 <h3>Tariq Imam</h3>
                 <div class="input-container">
@@ -136,10 +135,10 @@ button {
             resultContainer.textContent = "Please enter your guess!";
         } else if (parseInt(userGuess) === actualAge) {
             resultContainer.textContent = `Congratulations! Your guess is correct. ${friendName}'s actual age is ${actualAge}.`;
-            resultContainer.style.color = '#28a745'; // Green color for correct guess
+            resultContainer.style.color = '#28a745'; 
         } else {
             resultContainer.textContent = `No, you are wrong. ${friendName}'s actual age is ${actualAge}.`;
-            resultContainer.style.color = '#dc3545'; // Red color for incorrect guess
+            resultContainer.style.color = '#dc3545';
         }
     }
     </script>
